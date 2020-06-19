@@ -21,7 +21,7 @@ class ItemValidationTest(FunctionalTest):
 
         #the page refreshed and show an error messege
         #the messege shows the todo thing cannot be empty
-        error = self.browser.find_element_by_css_selector('.has-error')
+        error = self.browser.find_element_by_css_selector('.alert-warning')
         self.assertEqual(error.text, "You can't have an empty list item")
 
         #she typed some text and commit, this time it's ok
@@ -33,7 +33,7 @@ class ItemValidationTest(FunctionalTest):
 
         #she saw a similar error messege at list page
         self.wait_for_row_in_list_table('1: Buy milk')
-        error = self.browser.find_element_by_css_selector('.has-error')
+        error = self.browser.find_element_by_css_selector('.alert-warning')
         self.assertEqual(error.text, "You can't have an empty list item")
 
         #it's ok after she typed some text
